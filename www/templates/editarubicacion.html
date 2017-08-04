@@ -1,0 +1,37 @@
+<ion-view view-title="Editar Ubicación" ng-controller="EditarubicacionCtrl as vm">
+ 
+  <div id="map_canvas"></div>     
+
+<form ng-submit="editubicacion()"  onsubmit="this.reset()" method="post" class="list">
+
+<div>
+    <ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+    <ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+
+ <span class="input-label">Direccion: </span>
+    <input type="text" ng-model="direccion" placeholder="Calle 5#0-0">
+    
+    <ion-item class="item-divider" id="inicio-list-item-divider3">Ciudad</ion-item>
+    <label class="item item-input item-select" id="inicio-select3">
+     <span class="input-label">Seleccionar</span>
+    <select name="ciudad" id="ciudad" ng-model="ciudad">
+    <option ng-repeat="x in ciudad">{{x.ciudad}}</option>
+    </select>
+    </label>   
+
+    
+     
+<ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+    <button id="inicio-button1" type="submit" value="submit" ng-click="editubicacion()" class="button button-assertive  button-block">Guardar</button>
+
+
+   
+    <a ui-sref="app.home" class="btn">Cancel</a>
+
+
+  </form>
+
+  
+
+
+</ion-view>

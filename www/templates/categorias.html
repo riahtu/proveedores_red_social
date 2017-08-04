@@ -1,0 +1,17 @@
+ <ion-view title="Categorias">
+ 
+  <ion-content >
+    <div class="list">
+        
+        <div class="item item-thumbnail" ng-repeat="x in sector | filter:{sector:category}: true",  ui-sref="app.proveedores({proveedoresID: x.categoria})">
+  		 
+  			<h2>{{x.categoria}}</h2>
+              
+              
+       
+             
+		</ion-item>
+    </ion-list>
+    
+  </ion-content>
+</ion-view>

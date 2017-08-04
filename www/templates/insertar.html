@@ -1,0 +1,63 @@
+<ion-view view-title="Insertar" ng-controller="InsertarCtrl as vm">
+
+
+
+<form ng-submit="guardar()"  onsubmit="this.reset()" method="post" class="list">
+
+<div>
+
+<ion-item class="item-divider" id="inicio-list-item-divider3"> </ion-item>
+<label class="item item-input item-stacked-label">
+ <span class="input-label">Nombre Completo: </span>
+    <input type="text" ng-model="nombre" placeholder="Juan Sebastian Aguirre">  
+
+    <span class="input-label">Telefono</span>
+    <input type="text" ng-model="telefono" placeholder="3135555555">
+
+    <span class="input-label">Nombre del Servicio: </span>
+    <input type="text" ng-model="servicio" placeholder="Servicio de limpieza">  
+
+    <span class="input-label">Descripcion del servicio: </span>
+    <input type="text" ng-model="descripcion" placeholder="Servicio de aseo para hogares y oficinas"> 
+
+    <span class="input-label">Precio: </span>
+    <input type="text" ng-model="precio" placeholder="$20.000 medio dia">  
+
+    <span class="input-label">Direccion: </span>
+    <input type="text" ng-model="direccion" placeholder="Calle 5#0-0">
+    
+   
+    <ion-item class="item-divider" id="inicio-list-item-divider3">Ciudad</ion-item>
+    <label class="item item-input item-select" id="inicio-select3">
+     <span class="input-label">Seleccionar</span>
+    <select name="ciudad" id="ciudad" ng-model="ciudad">
+    <option ng-repeat="x in ciudad">{{x.ciudad}}</option>
+    </select>
+    </label>
+
+     <ion-item class="item-divider" id="inicio-list-item-divider4">Sector</ion-item>
+    <label class="item item-input item-select" id="inicio-select4">
+     <span class="input-label">Seleccionar</span>
+    <select name="sector" id="sector" ng-model="proveedor.sector">
+    <option ng-repeat="x in sector">{{x.sector}}</option>
+    </select>
+    </label>
+
+
+<ion-item class="item-divider" id="inicio-list-item-divider5"> Categoria</ion-item>
+<label class="item item-input item-select" id="inicio-select5">
+     <span class="input-label">Seleccionar</span>
+    <select name="categoria" id="categoria" ng-model="proveedor.categoria">
+    <option ng-repeat="x in categoria| filter:{sector:proveedor.sector}: true ">{{x.categoria}}</option>
+    </select>
+    </label>    
+     
+<ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+    <button id="inicio-button1" type="submit" value="submit" ng-click="guardar()" class="button button-assertive  button-block">Guardar</button>
+
+
+   
+    <a ui-sref="app.home" class="btn">Cancel</a>
+  </form>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<ion-view view-title="Perfil" ng-controller="HomeController as vm" >
+  <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  <ion-content scroll="false">
+  <div class="top">
+    <h2>awesome logo <span> tag line here</span></h2>
+  </div>
+
+  <div class="bottom"  ng-hide="isAuthenticated">
+    <button class="button button-default button-block">Inicie Sesión</button>
+     <button class="button button-dark button-block">Registrese</button>
+
+      <button class="button button-full button-positive" ng-click="vm.login()">
+        inicio
+      </button>
+      <p class="foot-note">&copy: 2017 Nexapp. Todos los derechos reservados</p>
+
+    </div>
+    <video id="video-bg" webkit-playsinline playsinline>
+      <source src="vids/bg.mp4" type="video/mp4">
+      <source src="vids/bg.webm" type="video/webm">
+    </video>
+
+
+    <div ng-show="isAuthenticated">
+      <div class="list card">
+
+        <div class="list card">
+        <div class="item item-avatar">
+          <img src="{{ vm.profile.picture }}">
+          <h2>{{ vm.profile.name }}</h2>
+          <span ng-if="vm.profile.country" class="additional-info">Pais: <strong>{{ vm.profile.country }}</strong></span>
+        </div>
+
+        <a class="item item-icon-left assertive" ng-click="vm.logout()">
+          <i class="icon ion-log-out"></i> Log Out
+        </a>
+
+      </div>
+
+
+    </div>
+
+
+  </ion-content>
+  
+</ion-view>

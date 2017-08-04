@@ -1,0 +1,45 @@
+<ion-view view-title="Perfil" ng-controller="PerfilCtrl as vm">
+  <ion-content >
+
+ <ion-refresher pulling-text="Refresh" on-refresh="doRefresh()"></ion-refresher>
+ <div class="list">
+
+
+        
+        <div class="item item-thumbnail-left item-button-right" ng-repeat="x in proveedor | filter:{email:vm.profile.name}: true ">
+  		 	<img src="{{x.imagen}}"/>
+         <h1>Proveedor</h1>
+  			       <h2>{{x.nombre}}</h2>
+               <h2>{{x.sector}}</h2>
+              <h2>{{x.categoria}}</h2> 
+              <p>Telefono: {{x.telefono}}</p>
+              <p>Servicio: {{x.servicio}}</p>
+              <p>Descripcion: {{x.descripcion}}</p>  
+              <p>Precio: {{x.precio}}</p>
+              <p>Direccion: {{x.direccion}}</p>
+              <p>{{x.ciudad}}</p>
+          <a class="item item-icon-left assertive" ui-sref="app.miperfil">
+          <i class="icon ion-person"></i> Editar
+        </a> 
+      <a class="item item-icon-left assertive" ui-sref="app.editarservicio">
+          <i class="icon ion-edit"></i> Editar Servicio
+        </a>  
+
+      <a class="item item-icon-left assertive" ui-sref="app.editarubicacion">
+          <i class="icon ion-location"></i> Editar Ubicación
+        </a> 
+
+        <a class="item item-icon-left assertive" ui-sref="app.perfil" ng-click="eliminar()">
+          <i class="icon ion-trash-b"></i> Eliminar
+        </a>           
+              
+       
+             
+		</ion-item>
+    </ion-list>
+
+    <ion-infinite-scroll on-infinite="loadMore()" ng-if="canLoadMore" immediate-check="false">
+</ion-infinite-scroll>
+
+  </ion-content>
+</ion-view>

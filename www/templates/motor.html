@@ -1,0 +1,63 @@
+<ion-view view-title="Buscar" ng-controller="MotorCtrl as vm">
+ 
+
+   <ion-content> 
+ 
+    <form ng-submit="enviar()" method="post" class="list">
+
+<div>
+
+
+
+  <ion-item class="item-divider" id="inicio-list-item-divider4">Sector</ion-item>
+    <label class="item item-input item-select" id="inicio-select4">
+     <span class="input-label">Seleccionar</span>
+    <select name="sector" id="sector" ng-model="proveedor.sector">
+    <option ng-repeat="x in sector">{{x.sector}}</option>
+    </select>
+    </label>
+
+
+<ion-item class="item-divider" id="inicio-list-item-divider5"> Categoria</ion-item>
+<label class="item item-input item-select" id="inicio-select5">
+     <span class="input-label">Seleccionar</span>
+    <select name="categoria" id="categoria" ng-model="proveedor.categoria">
+    <option ng-repeat="x in categoria| filter:{sector:proveedor.sector}: true ">{{x.categoria}}</option>
+    </select>
+    </label>   
+
+
+       <ion-item class="item-divider" id="inicio-list-item-divider2"> Distancia proveedor</ion-item>
+      <ion-item class="range range-positive" id="inicio-range2">Distancia<input type="range" name="volume" value="50" min="0" max="100" step="2" color="secondary" ng-model="rangeValue"  >
+      <div> {{rangeValue}}km</div>
+      </ion-item>    
+
+       
+    <button id="inicio-button1" type="submit" value="Enviar" ng-click="enviar()" class="button button-assertive  button-block">Buscar</button>
+     </form>  
+
+ <ion-list class="card">
+           <div class="item item-thumbnail-left item-button-right" ng-repeat="x in proveedor| filter:{sector:proveedor.sector,categoria:proveedor.categoria}: true ",  ui-sref="app.proveedor({proveedorID: x.nombre})">
+  		<img src="{{ vm.profile.picture }}">
+  			      <h2>{{x.nombre}}</h2>
+              <p>{{x.servicio}}</p>
+    
+              <p>Distancia:{{6371*Math.acos((Math.sin(3.1416*x.latitud/180))
+                *Math.sin(3.1416*lat1/180)
+                +Math.cos(3.1416*(x.longitud-lng1)/180)
+                *Math.cos(3.1416*x.latitud/180)
+                *Math.cos(3.1416*lat1/180))| number:2}} km</p>
+
+              
+
+                  
+</script> 
+         
+
+		</ion-item>
+    </ion-list>
+  
+  </ion-content>
+</ion-view>
+
+    

@@ -1,0 +1,48 @@
+<ion-view view-title="Editar Servicio" ng-controller="EditarservicioCtrl as vm">
+
+  
+
+<form ng-submit="editservicio()"  onsubmit="this.reset()" method="post" class="list">
+
+<div>
+    <ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+    <ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+
+   <span class="input-label">Nombre del Servicio: </span>
+    <input type="text" ng-model="servicio" placeholder="Servicio de limpieza">  
+
+    <span class="input-label">Descripcion del servicio: </span>
+    <input type="text" ng-model="descripcion" placeholder="Servicio de aseo para hogares y oficinas"> 
+
+    <span class="input-label">Precio: </span>
+    <input type="text" ng-model="precio" placeholder="$20.000 medio dia">  
+
+      <ion-item class="item-divider" id="inicio-list-item-divider4">Sector</ion-item>
+    <label class="item item-input item-select" id="inicio-select4">
+     <span class="input-label">Seleccionar</span>
+    <select name="sector" id="sector" ng-model="proveedor.sector">
+    <option ng-repeat="x in sector">{{x.sector}}</option>
+    </select>
+    </label>
+
+
+<ion-item class="item-divider" id="inicio-list-item-divider5"> Categoria</ion-item>
+<label class="item item-input item-select" id="inicio-select5">
+     <span class="input-label">Seleccionar</span>
+    <select name="categoria" id="categoria" ng-model="proveedor.categoria">
+    <option ng-repeat="x in categoria| filter:{sector:proveedor.sector}: true ">{{x.categoria}}</option>
+    </select>
+    </label>    
+     
+<ion-item class="item-divider" id="inicio-list-item-divider3"></ion-item>
+    <button id="inicio-button1" type="submit" value="submit" ng-click="editservicio()" class="button button-assertive  button-block">Guardar</button>
+
+
+   
+    <a ui-sref="app.home" class="btn">Cancel</a>
+  </form>
+</div>
+</div>
+
+
+</ion-view>

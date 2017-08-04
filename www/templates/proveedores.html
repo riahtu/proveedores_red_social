@@ -1,0 +1,21 @@
+ <ion-view title="Proveedores de servicio">
+
+   
+ 
+  <ion-content >
+    <div class="list">
+        
+        <div class="item item-thumbnail-left item-button-right" ng-repeat="x in proveedor | filter:{categoria:proveedorservice}: true ",  ui-sref="app.proveedor({proveedorID: x.nombre})">
+  		 	<img src="{{ vm.profile.picture}}"/>
+  			      <h2>{{x.nombre}}</h2>
+              <p>{{x.servicio}}</p>
+              <p>{{distancia}}</p>
+            
+             
+              
+       
+             
+		</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
